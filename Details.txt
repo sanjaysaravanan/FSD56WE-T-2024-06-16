@@ -1,0 +1,101 @@
+
+Topics:
+
+  1. Express Router:
+      Separate & Modularise the API logics using router
+
+      instead of dumping all the API logics in one single file
+  
+  2. Create APIs for the sample questions below,
+
+      1. Assigning a teacher to a student,
+          This should relate the students and teacher
+
+        Using PUT Request to assign a teacher to a student
+
+      2. Get all the students for a specific teacher
+
+          Write a query param ( teacherId  ) in the get all students,
+            then send only the students associated only with that teacherId
+          
+          No TeacherId found, send all the students
+
+      3. Get the Teacher info for a specific student
+
+  3. DB Connection ---> MongoDB 
+
+    Step 1:
+      Connection to a DB
+    Step 2: 
+      Write Queries to do CRUD opertion with DB
+
+    to connect to any DB We need driver setup for any language
+
+    Packages:
+      MongoDB -> Simple Connecting to DB and writing ontop of the database
+    
+  4. Converting the Local variable to Local DB
+        local memory storing will loose the data after server restart
+
+        but local DB Data will be persisted locally in the machine - Done
+
+  5. Cloud DB:
+      1. Cloud Atlas:
+
+        Signing Up & Creating Cloud DB
+
+        Connecting with Cloud Atlas DB
+      
+        DB Create: 
+          1. Sign up on https://cloud.mongodb.com/
+          2. Cluster Creation
+          3. Database Creation ( Select M0 Free Version & Create )
+          4. Username with Password, Note those details somewhere safe
+          5. Add 0.0.0.0/0 in the network - this open up the db for anybody with username/password to connect to it
+          5. Copy the Connect URL and replace with the local url
+
+              mongodb+srv://<username>:<password>@cluster0.ruapl1v.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+              mongodb+srv://sanjaysaravanan00007:<password>@cluster0.yxr2hty.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      
+    Cloud Backend ( NodeJs in Render.com ) <-> Cloud DB ( Mongo Cluster )
+        
+Next Session:
+  Mongoose:
+
+    what is mongoose?
+      schema based object modelling tool for connecting & doing CRUD operation on DB
+
+    schema
+
+    DB Connection:
+      URI string to identify the database service
+
+Tasks:
+
+  Day 34: https://docs.google.com/document/d/1rwPQ2LbHtMZajA_GIZfR-Ko2MFueoT82AmfHTK9V-hM/edit ( local variables to store data )
+
+  Day 35: https://docs.google.com/document/d/1sxHk2QDyK_evjlbwWPklyTXDHHOENKqj-IHS2yNSaHQ/edit
+
+  Create two Object:
+    mentor:
+      name
+      email
+      mentorId
+      // students array contains student ids
+      students: [ 'Gokulnath-1234', 'Namrata-5678' ]
+
+    mentor-assignment:
+      studentId
+      mentorId
+      assignmentId
+
+    student:
+      name
+      email
+      studentId
+      currentMentor: 'Sanjay S'
+      prevMentor: 'Sanjay Prashanth' ( once You assign a mentor to a student change the current & prev mentor accordingly )
+
+    Try to complete in local setup, will teach to deploy the complete setup to cloud tomorrow 
+  
